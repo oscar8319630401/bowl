@@ -19,9 +19,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -30,11 +30,13 @@ jobs:
 
       - run: npx tsc --noEmit
 
+      # configure-pages를 빌드보다 먼저 두면 Pages 미설정을 즉시 알 수 있다.
+      # (뒤에 두면 npm ci와 빌드를 다 돌린 뒤에야 실패해서 시간만 버린다)
+      - uses: actions/configure-pages@v5
+
       - run: npx vite build
         env:
           GITHUB_PAGES: '1'
-
-      - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
