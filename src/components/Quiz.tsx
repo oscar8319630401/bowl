@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ERAS, POTTERY, potteryById, type Pottery } from '../data/pottery'
-import { silhouetteDataUrl } from '../lib/textures'
+import { thumbUrl } from '../lib/thumbs'
 import { useStore } from '../lib/store'
 
 /**
@@ -41,7 +41,7 @@ function makeQuestions(source: Pottery[], count: number): Question[] {
       return {
         potteryId: p.id,
         prompt: `이 도자기가 만들어진 시대는?`,
-        image: silhouetteDataUrl(p.profile, p.glaze, 260),
+        image: thumbUrl(p),
         choices: shuffle([answer, ...pickWrong(eraNames, answer, 3)]),
         answer,
       }
@@ -59,7 +59,7 @@ function makeQuestions(source: Pottery[], count: number): Question[] {
     return {
       potteryId: p.id,
       prompt: `이 도자기의 이름은?`,
-      image: silhouetteDataUrl(p.profile, p.glaze, 260),
+      image: thumbUrl(p),
       choices: shuffle([answer, ...pickWrong(POTTERY.map((x) => x.name), answer, 3)]),
       answer,
     }

@@ -1,5 +1,5 @@
 import { ERAS, POTTERY, type Pottery } from '../data/pottery'
-import { silhouetteDataUrl } from '../lib/textures'
+import { thumbUrl } from '../lib/thumbs'
 import { useCollectionStats, useStore } from '../lib/store'
 
 /**
@@ -30,7 +30,7 @@ function Shelf({ items, onPick }: { items: Pottery[]; onPick: (p: Pottery) => vo
               {locked ? (
                 <span className="lock">?</span>
               ) : (
-                <img src={silhouetteDataUrl(p.profile, p.glaze, 200)} alt={p.name} />
+                <img src={thumbUrl(p)} alt={p.name} loading="lazy" />
               )}
               {tier === 'gold' && <span className="badge badge-gold">★</span>}
               {tier === 'bronze' && <span className="badge badge-bronze">●</span>}

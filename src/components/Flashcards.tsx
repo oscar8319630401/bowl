@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { POTTERY, type Pottery } from '../data/pottery'
-import { silhouetteDataUrl } from '../lib/textures'
+import { thumbUrl } from '../lib/thumbs'
 
 /**
  * PRD #3 플래시카드.
@@ -25,10 +25,7 @@ export default function Flashcards({ onClose }: { onClose: () => void }) {
   const startX = useRef<number | null>(null)
 
   const card = deck[0]
-  const thumb = useMemo(
-    () => (card ? silhouetteDataUrl(card.profile, card.glaze, 320) : ''),
-    [card],
-  )
+  const thumb = card ? thumbUrl(card) : ''
 
   const advance = (gotIt: boolean) => {
     if (!card) return

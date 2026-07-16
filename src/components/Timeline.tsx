@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ERAS, POTTERY_BY_ERA, type Era, type Pottery } from '../data/pottery'
-import { silhouetteDataUrl } from '../lib/textures'
+import { thumbUrl } from '../lib/thumbs'
 import { useStore } from '../lib/store'
 
 /**
@@ -32,7 +32,7 @@ function EraCard({ era, onPick }: { era: Era; onPick: (p: Pottery) => void }) {
           return (
             <button key={p.id} className="pot-card" onClick={() => onPick(p)}>
               <div className="pot-thumb">
-                <img src={silhouetteDataUrl(p.profile, p.glaze, 220)} alt="" draggable={false} />
+                <img src={thumbUrl(p)} alt={p.name} loading="lazy" draggable={false} />
                 {tier !== 'none' && <span className={`badge badge-${tier}`}>{tier === 'gold' ? '★' : '●'}</span>}
               </div>
               <span className="pot-name">{p.name}</span>
