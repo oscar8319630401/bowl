@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- 비색(翡色): 왼쪽 그늘 → 유약 하이라이트 → 오른쪽 반사 -->
+    <linearGradient id="glaze" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2b6553"/>
+      <stop offset="30%" stop-color="#63c49f"/>
+      <stop offset="52%" stop-color="#cdf3e2"/>
+      <stop offset="74%" stop-color="#5cbb96"/>
+      <stop offset="100%" stop-color="#1f4c3e"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#16342d"/>
+      <stop offset="100%" stop-color="#081714"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+
+  <!-- 매병(梅甁): 작은 아가리 → 넓은 어깨 → 잘록한 굽.
+       16px 파비콘까지 견뎌야 해서 실측 프로필 대신 형태 특징만 남기고,
+       타일을 꽉 채워 실루엣이 축소에도 읽히게 했다. -->
+  <g transform="translate(32 33.5) scale(1.22) translate(-32 -33.5)">
+    <path d="M27.4 9.6 h9.2 a1.1 1.1 0 0 1 1.05 1.45 l-.75 2.35
+             c8.15 2.75 12.4 9.15 12.4 17.15
+             c0 8.6 -3.1 16.7 -6.3 22.6
+             a2.1 2.1 0 0 1 -1.85 1.05 h-18.3
+             a2.1 2.1 0 0 1 -1.85 -1.05
+             c-3.2 -5.9 -6.3 -14.0 -6.3 -22.6
+             c0 -8.0 4.25 -14.4 12.4 -17.15
+             l-.75 -2.35 a1.1 1.1 0 0 1 1.05 -1.45 z"
+          fill="url(#glaze)"/>
+
+    <!-- 상감 학 — 축소되면 뭉개지므로 굵고 단순하게. 큰 화면에서만 살아나면 된다. -->
+    <g fill="#f8f6ef">
+      <ellipse cx="29.4" cy="35.4" rx="7.0" ry="3.0" transform="rotate(-12 29.4 35.4)"/>
+      <path d="M30.4 32.0 Q26.2 26.8 20.8 26.0 Q25.8 30.4 27.4 34.8 Z"/>
+      <circle cx="40.6" cy="26.6" r="1.9"/>
+    </g>
+    <g stroke="#f8f6ef" fill="none" stroke-linecap="round">
+      <path d="M34.4 33.6 Q38.4 29.8 40.1 27.6" stroke-width="2.4"/>
+      <path d="M42.2 25.9 L45.4 24.8" stroke-width="1.2"/>
+      <path d="M27.4 38.0 L23.4 41.6" stroke-width="1.3"/>
+      <path d="M29.2 38.4 L25.8 42.2" stroke-width="1.3"/>
+    </g>
+  </g>
+</svg>
